@@ -1,0 +1,57 @@
+Uspjesno fitovano (successful fit): 165 drzava
+Od toga treba ponovo uraditi (ali su ok brojevi): 17 drzava. To su (repeat_fit).
+Od tih 165, treba izbaciti 38 drzava koje nisu ok i ne treba ih raditi (bad_fits).
+
+15 Drzava nije uspjesno fitovano. To su (failed_fit).
+
+------------------------------------------------
+FAILED FITS
+
+rucno mijenjao dataset:
+1.) China - stavio nule kad je otislo u zasicenje
+2.)Trinidad and Tobago - uspio popraviti uz stavljanje ftol i xtol = 1e-5 kao **kwargs.
+3.)Uganda - uspio popraviti uz stavljanje ftol i xtol = 1e-5 kao **kwargs.
+4.)Venezuela - uspio popraviti uz stavljanje ftol i xtol = 1e-5 kao **kwargs.
+
+Brunei - nisam uspio popraviti
+Fiji - 7 slucajeva, ne treba raditi.
+Lao PDR - 10 slucajeva, ne treba raditi.
+Libya - 11 slucajeva, ne treba raditi.
+Maldives - 19 slucajeva, ne treba raditi.
+Mongolia - 14 slucajeva, ne treba raditi.
+Seychelles - 10 slucajeva, ne treba raditi.
+Sierra Leone - 2 slucaja, ne treba raditi.
+Suriname - 10 slucajeva, ne treba raditi.
+Tanzania - 20 slucajeva, ne treba raditi.
+
+----------------------------------------------------
+REPEATED FITS
+1.) Cambodia - uspio popraviti. Moguce je fitovati ali je veliko odstupanje, medjutim ako se ukloni zadnjih 10ak dana (jer ulazi u zasicenje), dobije se fina kriva.
+2.) Ghana - uspio riskantno popraviti. Morao ukloniti dva uzastopna dana kada nema promjena, i uklonio zasicenje (zasicenje ok, ali je upitno smiju li se dva uzastopna dana sa po 6 slucajeva i sa po 7 slucajeva ukloniti), jer je dosta kocilo i odudaralo od ostatke rezultata koji su eksponencijalnog karaktera. Medjutim, donekle ima smisla, jer vjerovatno samo nisu na vrijeme testirali.
+3.) Jordan - popravio, stavio xtol i ftol na 1e-9 i fituje. Dakle, odstupanje je malo.
+4.) Korea, South - popravio, potrebno ukloniti zasicenje, obzirom da su primijenili mjere i regulisali krivu.
+5.) Mauritius - popravio, uklonio jedan uzastopni isti dan i odmah dobio savrsen fit.
+6.) Montenegro - popravio, uklonio dva uzastopna dana kada je razlika bila 1 pacijent, iako se to nalazilo na eksponencijalno poodmaklom dijelu (82-83, i 33-34 pacijenta). Savrsen fit nakon toga.
+7.) Uruguay - popravio, uklonio dva uzastopna dana kada vec postoje 300+ pacijenata i 150+ pacijenta, a navedeno da je novih svega 1-2 slucaja, sto svakako utice na fit. Dobiven savrsen fit.
+
+Barbados - 50 slucajeva, nisam uspio popraviti.
+Burma - 20 slucajeva, ne treba raditi.
+Guatemala - 50 slucajeva, ne treba raditi.
+Kyrgyzstan - 120 slucajeva, ali nisam uspio popraviti. Ne djeluje da imaju eksponencijalnu krivu.
+Madagascar - 60 slucajeva, ne treba raditi.
+Mali - 40 slucajeva, ne treba raditi
+Niger - svega 10ak sample-ova, tesko za fitovati. Ne treba raditi.
+Uzbekistan - nisam uspio popraviti, 200 slucajeva. Ne ponasa se kao eksponencijalno rastuca kriva.
+Zambia - 40 slucajeva, ne treba raditi.
+
+------------------------------------
+Formirao txt file final_list_of_countries_to_skip, u kojeg sam stavio sve drzave koje treba preskociti, a prethodno su pobrojane.
+Od 17 repeated fits, popravio 7.
+Od 15 failed fits, popravio 4.
+
+
+------
+Malawi krahira iz nepoznatih razloga.
+
+-----------
+pokretanjem koda final_fit_code, kreirao sam sve fitove ispocetka i upisao ih u tabelu full_table. Venezuela, Uganda i Trinidad i Tobago fitovi nisu uspjeli, pa sam te 3 dodao rucno iz jsona.
